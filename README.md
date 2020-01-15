@@ -53,22 +53,22 @@ type "make test".
 Usage
 -----
 
-hough3dlines without any or with an unknown option (e.g. "-?") will print
+*hough3dlines* without any or with an unknown option (e.g. "-?") will print
 the following usage message:
 
-Usage:
-    hough3dlines [options] <infile>
-Options (defaults in brackets):
-    -o <outfile>   write results to <outfile> [stdout]
-    -dx <dx>       step width in x'y'-plane [0]
-                   when <dx>=0, it is set to 1/64 of total width
-    -nlines <nl>   maximum number of lines returned [0]
-                   when <nl>=0, all lines are returned
-    -minvotes <nv> only lines with at least <nv> points are returned [0]
-    -gnuplot       print result as a gnuplot command
-    -raw           print plot data in easily machine-parsable format
-    -v             be verbose and print Hough space size to stdout
-    -vv            be even more verbose and print Hough lines (before LSQ)
+    Usage:
+        hough3dlines [options] <infile>
+    Options (defaults in brackets):
+        -o <outfile>   write results to <outfile> [stdout]
+        -dx <dx>       step width in x'y'-plane [0]
+                       when <dx>=0, it is set to 1/64 of total width
+        -nlines <nl>   maximum number of lines returned [0]
+                       when <nl>=0, all lines are returned
+        -minvotes <nv> only lines with at least <nv> points are returned [0]
+        -gnuplot       print result as a gnuplot command
+        -raw           print plot data in easily machine-parsable format
+        -v             be verbose and print Hough space size to stdout
+        -vv            be even more verbose and print Hough lines (before LSQ)
 
 
 Input
