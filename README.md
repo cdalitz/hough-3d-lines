@@ -67,6 +67,7 @@ the following usage message:
         -minvotes <nv> only lines with at least <nv> points are returned [0]
         -gnuplot       print result as a gnuplot command
         -raw           print plot data in easily machine-parsable format
+        -delim <char>  use <char> as field delimiter in input file [,]
         -v             be verbose and print Hough space size to stdout
         -vv            be even more verbose and print Hough lines (before LSQ)
 
@@ -83,6 +84,8 @@ are ignored. Example:
     41.7201,138.2140,-648.0000
     0.0001,-138.2140,-440.0000
     2.4543,-136.8650,-436.8000
+
+The delimiter (comma) can be cchanged with the command line option "-delim".
 
 
 Output

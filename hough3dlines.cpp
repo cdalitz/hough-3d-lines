@@ -3,7 +3,7 @@
 //     Main program implementing the iterative Hough transform
 //
 // Author:  Tilman Schramke, Christoph Dalitz
-// Date:    2018-03-24
+// Date:    2020-01-15
 // License: see License-BSD2
 //
 
@@ -32,10 +32,11 @@ const char* usage = "Usage:\n"
   "\t-minvotes <nv> only lines with at least <nv> points are returned [0]\n"
   "\t-gnuplot       print result as a gnuplot command\n"
   "\t-raw           print plot data in easily machine-parsable format\n"
+  "\t-delim <char>  use <char> as field delimiter in input file [,]\n"
   "\t-v             be verbose and print Hough space size to stdout\n"
   "\t-vv            be even more verbose and print Hough lines (before LSQ)\n"
   "Version:\n"
-  "\t1.1 from 2018-03-24\n";
+  "\t1.2 from 2020-01-15\n";
 
 //--------------------------------------------------------------------
 // utility functions
@@ -88,6 +89,7 @@ int main(int argc, char ** argv) {
   int opt_minvotes = 0;
   enum Outformat { format_normal, format_gnuplot, format_raw };
   Outformat opt_outformat = format_normal;
+  char opt_delim = ',';
   int opt_verbose = 0;
   char* infile_name = NULL;
   char* outfile_name = NULL;
@@ -128,6 +130,10 @@ int main(int argc, char ** argv) {
     }
     else if (0 == strcmp(argv[i], "-raw")) {
       opt_outformat = format_raw;
+    }
+    else if (0 == strcmp(argv[i], "-delim")) {
+      i++;
+      if (i<argc) opt_delim = argv[i][0];
     }
     else if (0 == strcmp(argv[i], "-v")) {
       opt_verbose = 1;
@@ -177,8 +183,13 @@ int main(int argc, char ** argv) {
 
   // read point cloud from file
   PointCloud X;
-  if (0 != X.readFromFile(infile_name)) {
-    fprintf(stderr, "Error: cannot open infile '%s'!\n", infile_name);
+  int errorcode = X.readFromFile(infile_name, opt_delim);
+  if (2 == errorcode) {
+    fprintf(stderr, "Error: wrong file format of infile '%s'!\n", infile_name);
+    return 1;
+  }
+  else if (0 != errorcode) {
+    fprintf(stderr, "Error: cannot read infile '%s'!\n", infile_name);
     return 1;
   }
   if (X.points.size() < 2) {

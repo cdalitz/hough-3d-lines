@@ -3,8 +3,8 @@
 //     Class for holding a set of 3D points
 //
 // Author:  Tilman Schramke, Christoph Dalitz
-// Date:    2017-03-16
-// License: see LICENSE-BSD2
+// Date:    2020-01-15
+// License: see LICENSE
 //
 
 #ifndef POINTCLOUD_H_
@@ -28,7 +28,7 @@ public:
   // bounding box corners
   void getMinMax3D(Vector3d* min_pt, Vector3d* max_pt);
   // reads point cloud data from the given file
-  int readFromFile(const char* path);
+  int readFromFile(const char* path, char delim);
   // store points closer than dx to line (a, b) in Y
   void pointsCloseToLine(const Vector3d &a, const Vector3d &b,
                          double dx, PointCloud* Y);

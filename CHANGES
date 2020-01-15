@@ -1,6 +1,14 @@
 Change log of hough3dlines
 ==========================
 
+Version 1.2 from 2020-01-15
+---------------------------
+
+ - new option "-delim" for alternative field delimiter in input
+
+ - more informational error message when input file in wrong format
+
+
 Version 1.1 from 2018-03-24
 ---------------------------
 

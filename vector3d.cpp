@@ -4,7 +4,7 @@
 //
 // Author:  Tilman Schramke, Christoph Dalitz
 // Date:    2017-03-16
-// License: see LICENSE-BSD2
+// License: see LICENSE
 //
 
 #include "vector3d.h"

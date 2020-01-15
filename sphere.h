@@ -6,7 +6,7 @@
 //
 // Author:  Manuel Jeltsch, Tilman Schramke
 // Date:    2017-03-16
-// License: see LICENSE-BSD2
+// License: see LICENSE
 //
 
 #ifndef SPHERE_H_

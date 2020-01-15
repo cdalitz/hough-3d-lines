@@ -3,8 +3,8 @@
 //     Class for holding a set of 3D points
 //
 // Author:  Tilman Schramke, Christoph Dalitz
-// Date:    2017-03-16
-// License: see LICENSE-BSD2
+// Date:    2020-01-15
+// License: see LICENSE
 //
 
 #include "pointcloud.h"
@@ -60,16 +60,18 @@ void PointCloud::getMinMax3D(Vector3d* min_pt, Vector3d* max_pt){
 
 // reads point cloud data from the given file
 // (see IPOL paper for file format)
-int PointCloud::readFromFile(const char* path){
+int PointCloud::readFromFile(const char* path, char delim){
   FILE* f = fopen(path, "r");
   if (!f) return 1;
 
   char line[1024];
+  char formatstring[32];
   Vector3d point;
   int n;
+  sprintf(formatstring, "%%lf%c%%lf%c%%lf", delim, delim);
   while (fgets(line, 1023, f)) {
     if (line[0] == '#') continue;
-    n = sscanf(line, "%lf,%lf,%lf", &point.x, &point.y, &point.z);
+    n = sscanf(line, formatstring, &point.x, &point.y, &point.z);
     if (n != 3) {
       fclose(f);
       return 2;
