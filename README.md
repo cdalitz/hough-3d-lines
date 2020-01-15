@@ -4,8 +4,8 @@ Iterative Hough Transform for 3D Line Detection
 This code implements the algorithm described in (cited as "IPOL paper" below):
 
 > C. Dalitz, T. Schramke, M. Jeltsch: "Iterative Hough Transform for
-> Line Detection in 3D Point Clouds." IPOL, 2017
-> https://doi.org/10.5201/ipol.2017.208
+> Line Detection in 3D Point Clouds." Image Processing On Line 7 (2017),
+> pp. 184–196. https://doi.org/10.5201/ipol.2017.208
 
 Please cite this article when using the code. The article was published
 on IPOL with version 1.1 of this code. For changes since then, see the file
@@ -123,8 +123,7 @@ Authors & Copyright
 
 Christoph Dalitz, 2017-2020  
 Tilman Schramke, Manuel Jeltsch, 2017  
-Institute for Pattern Recognition
-Niederrhein University of Applied Sciences  
+Institute for Pattern Recognition, Niederrhein University of Applied Sciences,
 Krefeld, Germany
 
 

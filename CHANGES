@@ -1,0 +1,15 @@
+Change log of hough3dlines
+==========================
+
+Version 1.1 from 2018-03-24
+---------------------------
+
+ - fixed wrong return type of orthogonal_LSQ,
+   which resulted in missing lines
+
+
+Version 1.0 from 2017-06-16
+---------------------------
+
+ - first creation
+
