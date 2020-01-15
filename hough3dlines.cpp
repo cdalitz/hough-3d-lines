@@ -245,13 +245,14 @@ int main(int argc, char ** argv) {
 
   // print header info if necessary
   if (opt_outformat == format_gnuplot) {
-    fprintf(outfile, "set datafile separator ','\n"
+    fprintf(outfile, "set datafile separator '%c'\n"
             "set parametric\n"
             "set xrange [%f:%f]\n"
             "set yrange [%f:%f]\n"
             "set zrange [%f:%f]\n"
             "set urange [%f:%f]\n"
             "splot '%s' using 1:2:3 with points palette",
+            opt_delim,
             minP.x, maxP.x, minP.y, maxP.y, minP.z, maxP.z,
             -d, d, infile_name);
   }
