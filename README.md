@@ -124,7 +124,7 @@ and the following lines list the line parameters with one line per line.
 Authors & Copyright
 -------------------
 
-Christoph Dalitz, 2017-2020  
+Christoph Dalitz, 2017-2020, <https://lionel.kr.hsnr.de/~dalitz/>
 Tilman Schramke, Manuel Jeltsch, 2017  
 Institute for Pattern Recognition, Niederrhein University of Applied Sciences,
 Krefeld, Germany
