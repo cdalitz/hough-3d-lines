@@ -23,7 +23,7 @@ Source Files
   Class implementing Algorithm 2 (Hough Transform) of the IPOL paper
 
 - `sphere.[h|cpp]`  
-  Class implementating the direction discretization as described in
+  Class implementing the direction discretization as described in
   section 2.2 of the IPOL paper
 
 - `vector3d.[h|cpp]`  
