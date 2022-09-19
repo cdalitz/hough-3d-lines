@@ -15,22 +15,22 @@ on IPOL with version 1.1 of this code. For changes since then, see the file
 Source Files
 ------------
 
-- `hough3dlines.cpp`  
-  Main program that implements Algorithm 1 (Iterative Hough Transform)
-  of the IPOL paper
+ - ``hough3dlines.cpp``  
+   Main program that implements Algorithm 1 (Iterative Hough Transform)
+   of the IPOL paper
 
-- `hough.[h|cpp]`  
-  Class implementing Algorithm 2 (Hough Transform) of the IPOL paper
+ - ``hough.[h|cpp]``  
+   Class implementing Algorithm 2 (Hough Transform) of the IPOL paper
 
-- `sphere.[h|cpp]`  
-  Class implementing the direction discretization as described in
-  section 2.2 of the IPOL paper
+ - ``sphere.[h|cpp]``  
+   Class implementing the direction discretization as described in
+   section 2.2 of the IPOL paper
 
-- `vector3d.[h|cpp]`  
+ - ``vector3d.[h|cpp]``  
    Class for a 3D point with common math operations
 
-- `pointcloud.[h|cpp]`  
-  Class for a set of 3D points
+ - ``pointcloud.[h|cpp]``  
+   Class for a set of 3D points
 
 
 Installation
