@@ -17,6 +17,7 @@
 #include <vector>
 #include <deque>
 
+void initHoughSpace(unsigned int sphereGranularity = 4);
 class Hough {
 public:
   // accumulator array A
@@ -29,8 +30,7 @@ public:
   size_t num_x;
 
   // parameter space discretization and allocation of voting space
-  Hough(const Vector3d& minP, const Vector3d& maxP, double dx,
-        unsigned int sphereGranularity);
+  Hough(const Vector3d& minP, const Vector3d& maxP, double dx);
   ~Hough();
   // returns the line with most votes (rc = number of votes)
   unsigned int getLine(Vector3d* point, Vector3d* direction);

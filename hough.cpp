@@ -12,17 +12,21 @@
 
 #include <cstdlib>
 
+static Sphere* houghSpace = nullptr;
+
+void initHoughSpace(unsigned int sphereGranularity) {
+  houghSpace = new Sphere();
+  houghSpace->fromIcosahedron(sphereGranularity);
+}
 
 static double roundToNearest(double num) {
   return (num > 0.0) ? floor(num + 0.5) : ceil(num - 0.5);
 }
 
-Hough::Hough(const Vector3d& minP, const Vector3d& maxP, double var_dx,
-             unsigned int sphereGranularity) {
+Hough::Hough(const Vector3d& minP, const Vector3d& maxP, double var_dx ) {
 
   // compute directional vectors
-  sphere = new Sphere();
-  sphere->fromIcosahedron(sphereGranularity);
+  sphere = houghSpace;
   num_b = sphere->vertices.size();
 
   // compute x'y' discretization
@@ -39,7 +43,7 @@ Hough::Hough(const Vector3d& minP, const Vector3d& maxP, double var_dx,
 }
 
 Hough::~Hough() {
-  delete sphere;
+  // delete sphere;
 }
 
 // add all points from point cloud to voting space
