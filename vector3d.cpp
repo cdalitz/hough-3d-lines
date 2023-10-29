@@ -18,6 +18,13 @@ Vector3d::Vector3d(double a, double b, double c) {
   x = a; y = b; z = c;
 }
 
+bool Vector3d::isApprox(const Vector3d& other, double tolerance) const {
+    // Check if the absolute difference between each component is less than the tolerance
+    return (std::abs(x - other.x) < tolerance) &&
+           (std::abs(y - other.y) < tolerance) &&
+           (std::abs(z - other.z) < tolerance);
+}
+
 bool Vector3d::operator==(const Vector3d &rhs) const {
   if((x == rhs.x) && (y == rhs.y) && (z == rhs.z))
     return true;
