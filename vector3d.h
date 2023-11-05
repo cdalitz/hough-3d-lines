@@ -20,7 +20,6 @@ public:
 
   Vector3d();
   Vector3d(double a, double b, double c);
-  bool isApprox(const Vector3d& other, double tolerance) const;
   bool operator==(const Vector3d &rhs) const;
   Vector3d& operator=(const Vector3d& other);
   // nicely formatted output
