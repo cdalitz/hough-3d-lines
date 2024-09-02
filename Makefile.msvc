@@ -1,0 +1,53 @@
+#
+# Microsoft Visual C++ makefile for hough3d-IPOL
+#===============================================
+
+# compiler settings
+#--------------------------------
+
+# this will restrict size of Hough space and point cloud for the IPOL demo
+# do NOT enable it for production use!
+#DEMOMODE = /DWEBDEMO
+
+# include directory of libeigen
+LIBEIGEN = "C:\ProgramData\anaconda3\Library\include\eigen3"
+
+# settings for Microsoft Visual C++ compiler
+CC = cl
+CFLAGS = /EHsc /O2 /I$(LIBEIGEN) $(DEMOMODE)
+LDFLAGS =
+
+# from here on, no alterations
+# should be necessary
+#----------------------------------
+
+PROGRAM = hough3dlines
+OBJECTS = hough.obj pointcloud.obj sphere.obj vector3d.obj
+TGZDIR = hough3d-src
+
+all: $(PROGRAM)
+
+$(PROGRAM): $(PROGRAM).obj $(OBJECTS)
+	$(CC) /Fe$@ $** $(LDFLAGS)
+
+$(PROGRAM).obj: $(PROGRAM).cpp
+	$(CC) $(CFLAGS) /c $*.cpp
+
+%.obj: %.cpp %.h
+	$(CC) $(CFLAGS) /c $*.cpp
+
+tags: *.cpp *.h
+	ctags *.cpp *.h
+
+test: testdata.dat $(PROGRAM)
+	$(PROGRAM) $< /dx 0.4
+
+clean:
+	del *.obj $(PROGRAM)
+
+tgz:
+	mklink /D $(TGZDIR) .
+	tar cvzf $(TGZDIR).tgz \
+		$(TGZDIR)/*.cpp $(TGZDIR)/*.h $(TGZDIR)/testdata.dat \
+		$(TGZDIR)/README $(TGZDIR)/LICENSE-BSD2 $(TGZDIR)/Makefile $(TGZDIR)/CHANGES
+	rmdir $(TGZDIR)
